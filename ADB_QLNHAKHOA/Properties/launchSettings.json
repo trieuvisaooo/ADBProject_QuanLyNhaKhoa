@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ADB_QLNHAKHOA (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ADB_QLNHAKHOA (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
