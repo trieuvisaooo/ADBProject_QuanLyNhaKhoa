@@ -17,6 +17,7 @@
     <None Remove="MainWindow.xaml" />
     <None Remove="Views\AdminView_Medicine.xaml" />
     <None Remove="Views\DentistView_DentistInfo.xaml" />
+    <None Remove="Views\LoginWindow.xaml" />
     <None Remove="Views\StaffView_CustomerInfo.xaml" />
     <None Remove="Views\StaffView_CustomerRecord.xaml" />
     <None Remove="Views\StaffView_StaffInfo.xaml" />
@@ -46,6 +47,11 @@
   -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\LoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\AdminView_Medicine.xaml">
