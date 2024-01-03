@@ -27,5 +27,15 @@ namespace ADB_QLNHAKHOA
         {
             this.InitializeComponent();
         }
+
+        private void NvgtView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+
+        }
+
+        private void NvgtView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+
+        }
     }
 }
