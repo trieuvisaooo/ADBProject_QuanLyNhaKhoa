@@ -17,6 +17,7 @@
     <None Remove="MainWindow.xaml" />
     <None Remove="Views\AdminView_Medicine.xaml" />
     <None Remove="Views\DentistView_DentistInfo.xaml" />
+    <None Remove="Views\Pages\AdminView_AdminInfo.xaml" />
     <None Remove="Views\StaffView_CustomerInfo.xaml" />
     <None Remove="Views\StaffView_CustomerRecord.xaml" />
     <None Remove="Views\StaffView_StaffInfo.xaml" />
@@ -89,6 +90,14 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\StaffWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Windows\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\AdminView_AdminInfo.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
