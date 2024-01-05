@@ -33,14 +33,13 @@ namespace ADB_QLNHAKHOA.Views.Pages
             this.InitializeComponent();
 
         }
-        public AdminView_AdminInfo(int id)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.InitializeComponent();
-            _id = id;
-            MessageBox.Show(_id.ToString());
-            viewModel.getInfo(viewModel, _id);
+            
+            base.OnNavigatedTo(e);
+            viewModel = e.Parameter as AdminInfoViewModel;
+            viewModel.getInfo(viewModel);
         }
-
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
 

@@ -1,4 +1,5 @@
-﻿using ADB_QLNHAKHOA.Views;
+﻿using ADB_QLNHAKHOA.ViewModels;
+using ADB_QLNHAKHOA.Views;
 using ADB_QLNHAKHOA.Views.Pages;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -48,8 +49,8 @@ namespace ADB_QLNHAKHOA
             {
                 case 0:
                     NvgtView.Header = "Thông Tin Cá Nhân";
-                    var adminInfo = new AdminView_AdminInfo(_id);
-                    contentFrame.Navigate(adminInfo.GetType(), adminInfo);
+                    var viewModel = new AdminInfoViewModel(_id);
+                    contentFrame.Navigate(typeof(AdminView_AdminInfo), viewModel); 
                     break;
                 case 1:
                     NvgtView.Header = "Khách Hàng";

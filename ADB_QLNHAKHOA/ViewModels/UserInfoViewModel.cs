@@ -20,8 +20,7 @@ namespace ADB_QLNHAKHOA.ViewModels
         public int Id {get; set;}
         public string Name {get; set;}
         public DateOnly Birthday {get { return _birthday;} 
-            set { _birthday = value; 
-                OnPropertyChanged(nameof(Birthday)); 
+            set { _birthday = value;
                 } 
             }
         public string Phone {
@@ -30,15 +29,14 @@ namespace ADB_QLNHAKHOA.ViewModels
                 } 
             set {  
                 _phone = value;
-                OnPropertyChanged(nameof(Phone));
+                
                 }
             }
-        public string Email {get { return _email;} set { _email = value; OnPropertyChanged(nameof(Email)); } }
+        public string Email {get { return _email;} set { _email = value; } }
         public string Password {get { return _password;} 
             set
             {
                 _password = value;
-                OnPropertyChanged(nameof(Password));
             }
         }
 

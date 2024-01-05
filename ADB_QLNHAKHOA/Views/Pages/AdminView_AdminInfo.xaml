@@ -22,8 +22,8 @@
                     Spacing="15">
         
             <StackPanel Orientation="Horizontal" Spacing="30">
-                <TextBlock Text="Mã bệnh nhân: " Width="100"/>
-                <TextBox x:Name="CusID"
+                <TextBlock Text="Mã người dùng: " Width="100"/>
+                <TextBox x:Name="Id"
                          AutomationProperties.Name="simple TextBox"
                          IsReadOnly="True"
                          Width="200" Height="30"
@@ -32,7 +32,7 @@
 
             <StackPanel Orientation="Horizontal" Spacing="30">
                 <TextBlock Text="Tên bệnh nhân: " Width="100"/>
-                <TextBox x:Name="CusName"
+                <TextBox x:Name="Name"
                          AutomationProperties.Name="simple TextBox"
                          IsReadOnly="True"
                          Width="200" Height="30"

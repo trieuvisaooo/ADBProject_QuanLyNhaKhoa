@@ -11,13 +11,16 @@ namespace ADB_QLNHAKHOA.ViewModels
 {
     public class AdminInfoViewModel: UserInfoViewModel
     {
+        
         public AdminInfoViewModel() { }
-
-        public AdminInfoViewModel getInfo(AdminInfoViewModel adminInfo, int id)
+        public AdminInfoViewModel(int id) { 
+            Id = id;
+        }
+        public AdminInfoViewModel getInfo(AdminInfoViewModel adminInfo)
         {
             try
             {
-                string query = "select MAQTV, HOTEN, NGSINH, SDT, EMAIL, MATKHAU FROM QTV where MAQTV = " + id.ToString();
+                string query = "select MAQTV, HOTEN, NGSINH, SDT, EMAIL, MATKHAU FROM QTV where MAQTV = " + adminInfo.Id.ToString();
                 var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
                 using (var conn = new SqlConnection(connectionString))
                 {
@@ -29,8 +32,6 @@ namespace ADB_QLNHAKHOA.ViewModels
                             cmd.CommandText = query;
                             using (SqlDataReader reader = cmd.ExecuteReader())
                             {
-                                //var customerInfo = new CustomerInfoViewModel();
-
                                 while (reader.Read())
                                 {
                                     adminInfo.Id = reader.GetInt32(0);
