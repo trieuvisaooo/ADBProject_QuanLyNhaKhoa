@@ -51,13 +51,13 @@ namespace ADB_QLNHAKHOA.Views
             switch (selectedItemText)
             {
                 case "Admin":
-                    query = "SELECT * FROM [dbo].[QTV] WHERE EMAIL = @EMAIL AND MATKHAU = @MATKHAU";
+                    query = "SELECT * FROM [dbo].[QTV] WHERE MAQTV = @EMAIL AND MATKHAU = @MATKHAU";
                     break;
                 case "Nhân viên":
-                    query = "SELECT * FROM [dbo].[NHAN_VIEN] WHERE EMAIL = @EMAIL AND MATKHAU = @MATKHAU";
+                    query = "SELECT * FROM [dbo].[NHAN_VIEN] WHERE MANV = @EMAIL AND MATKHAU = @MATKHAU";
                     break;
                 case "Nha sĩ":
-                    query = "SELECT * FROM [dbo].[NHA_SI] WHERE EMAIL = @EMAIL AND MATKHAU = @MATKHAU";
+                    query = "SELECT * FROM [dbo].[NHA_SI] WHERE MANS = @EMAIL AND MATKHAU = @MATKHAU";
                     break;
                 default:
                     break;

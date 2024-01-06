@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -52,6 +53,32 @@ namespace ADB_QLNHAKHOA.ViewModels
                 Debug.WriteLine(eSql);    
             }
             return null;
+        }
+
+        public bool updateInfo(AdminInfoViewModel adminInfo, string phone, string birthday, string email, string password)
+        {
+            var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+            var query = $"UPDATE QTV SET SDT={phone}, NGSINH={birthday}, EMAIL={email}, MATKHAU={password} WHERE MAQTV={adminInfo.Id}";
+            var conn = new SqlConnection(connectionString);
+            
+            try
+            {
+                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Open) { 
+                    using (SqlCommand cmd = conn.CreateCommand()) 
+                    { 
+                        cmd.CommandText = query; 
+                        cmd.ExecuteNonQuery();
+                    
+                    } 
+                }
+                return true;
+            } catch(System.Exception e)
+            {
+                Debug.WriteLine(e);
+                return false;
+            } finally { conn.Close(); }
+
         }
     }
 }

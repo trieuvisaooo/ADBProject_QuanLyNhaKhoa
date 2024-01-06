@@ -39,7 +39,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         
-                        <TextBlock Grid.Column="0" x:Name="textTelephone" Text="Email" Style="{StaticResource normalText}" Foreground="#61677A"/>
+                        <TextBlock Grid.Column="0" x:Name="textTelephone" Text="Mã người dùng" Style="{StaticResource normalText}" Foreground="#61677A"/>
                         <TextBox
                             Grid.Column="1" 
                             x:Name="txtEmail" 
