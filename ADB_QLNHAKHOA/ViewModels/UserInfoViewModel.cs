@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ADB_QLNHAKHOA.ViewModels
 {
@@ -35,7 +30,7 @@ namespace ADB_QLNHAKHOA.ViewModels
                 _phone = value;
                 OnPropertyChanged(nameof(Phone));
                 }
-            }
+        }
         public string Email {get { return _email;} set { _email = value; OnPropertyChanged(nameof(Email));} }
         public string Password {get { return _password;} 
             set

@@ -20,7 +20,7 @@
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="ContactInfo" Content="Thông Tin Cá Nhân" Tag="0" />
                 <NavigationViewItem Icon="People" Content="Khách Hàng" Tag="1" />
-                <NavigationViewItem Content="Hồ Sơ Bệnh Án" Tag="2">
+                <NavigationViewItem Content="Kế hoạch điều trị" Tag="2">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xEC25;" />
                     </NavigationViewItem.Icon>

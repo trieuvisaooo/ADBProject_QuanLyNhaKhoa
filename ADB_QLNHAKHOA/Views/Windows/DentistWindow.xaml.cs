@@ -1,4 +1,6 @@
-﻿using ADB_QLNHAKHOA.Views;
+﻿using ADB_QLNHAKHOA.ViewModels;
+using ADB_QLNHAKHOA.Views;
+using ADB_QLNHAKHOA.Views.Pages;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -24,8 +26,12 @@ namespace ADB_QLNHAKHOA
     /// </summary>
     public sealed partial class DentistWindow : Window
     {
-        public DentistWindow()
+        private int _id;
+        public int Id { get { return _id; } }
+
+        public DentistWindow(int id)
         {
+            _id = id;
             this.InitializeComponent();
             App.SetTitleBarColors(this);
             this.AppWindow.TitleBar.ExtendsContentIntoTitleBar = true;
@@ -41,15 +47,25 @@ namespace ADB_QLNHAKHOA
             {
                 case 0:
                     NvgtView.Header = "Thông Tin Cá Nhân";
-                    contentFrame.Navigate(typeof(StaffView_StaffInfo));
+                    BaseViewModel viewModel = new DentistInfoVM(_id);
+                    contentFrame.Navigate(typeof(DentistView_DentistInfo), viewModel);
                     break;
                 case 1:
-                    NvgtView.Header = "Khách Hàng";
-                    contentFrame.Navigate(typeof(StaffView_CustomerInfo));
+                    NvgtView.Header = "Hồ Sơ Bệnh Nhân";
+                    contentFrame.Navigate(typeof(DentistView_DentistInfo));
                     break;
                 case 2:
-                    NvgtView.Header = "Hồ Sơ Bệnh Án";
-                    contentFrame.Navigate(typeof(StaffView_CustomerRecord));
+                    NvgtView.Header = "Lịch hẹn cá nhân";
+                    BaseViewModel viewModel2 = new DentistInfoVM(_id);
+                    contentFrame.Navigate(typeof(DentistView_Appointment), viewModel2);
+                    break;
+                case 3:
+                    NvgtView.Header = "Danh sách nhân viên";
+                    contentFrame.Navigate(typeof(DentistView_Appointment));
+                    break;
+                case 4:
+                    NvgtView.Header = "Danh sách nha sĩ";
+                    contentFrame.Navigate(typeof(DentistView_Appointment));
                     break;
             }
         }
@@ -68,6 +84,12 @@ namespace ADB_QLNHAKHOA
                 case "2":
                     FrameInflate(2);
                     break;
+                case "3":
+                    FrameInflate(3);
+                    break;
+                case "4":
+                    FrameInflate(4);
+                    break;
             }
         }
 
@@ -84,6 +106,12 @@ namespace ADB_QLNHAKHOA
                     break;
                 case "2":
                     FrameInflate(2);
+                    break;
+                case "3":
+                    FrameInflate(3);
+                    break;
+                case "4":
+                    FrameInflate(4);
                     break;
             }
         }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
@@ -28,6 +28,8 @@
     <None Remove="Views\Pages\AdminView_ServiceListPage.xaml" />
     <None Remove="Views\Pages\AdminView_StaffAccountPage.xaml" />
     <None Remove="Views\Pages\AdminView_StaffInfo.xaml" />
+    <None Remove="Views\Pages\DentistView_Appointment.xaml" />
+    <None Remove="Views\Pages\DentistView_DenMakeAppointment.xaml" />
     <None Remove="Views\StaffView_CustomerInfo.xaml" />
     <None Remove="Views\StaffView_CustomerRecord.xaml" />
     <None Remove="Views\StaffView_StaffInfo.xaml" />
@@ -105,6 +107,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Windows\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\DentistView_DenMakeAppointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\DentistView_Appointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Pages\AdminView_AddService.xaml">

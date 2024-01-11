@@ -19,12 +19,16 @@
                         >
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="ContactInfo" Content="Thông Tin Cá Nhân" Tag="0" />
-                <NavigationViewItem Icon="People" Content="Khách Hàng" Tag="1" />
-                <NavigationViewItem Content="Hồ Sơ Bệnh Án" Tag="2">
+                <!--<NavigationViewItem Icon="People" Content="Khách Hàng" Tag="1" />-->
+                <NavigationViewItem Content="Hồ Sơ Bệnh Nhân" Tag="1">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xEC25;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
+                <NavigationViewItem Icon="Clock" Content="Lịch Hẹn" Tag="2">
+                </NavigationViewItem>
+                <NavigationViewItem Icon="People" Content="Danh sách Nhân Viên" Tag="3"/>
+                <NavigationViewItem Icon="People" Content="Danh sách Nha Sĩ" Tag="4"/>
             </NavigationView.MenuItems>
             <NavigationView.PaneFooter>
                 <NavigationViewItem Content="Đăng Xuất" Tag="SignOut">

@@ -82,13 +82,16 @@ namespace ADB_QLNHAKHOA.Views
                         screen.Activate();
                         break;
                     case "Nhân viên":
-                        screen  = new StaffWindow();
+                        int id_nv = (int)reader["MANV"];
+
+                       screen  = new StaffWindow();
                         this.Close();
                         screen.Activate();
                     
                         break;
                     case "Nha sĩ":
-                        screen = new DentistWindow();
+                        int id_ns = (int)reader["MANS"];
+                        screen = new DentistWindow(id_ns);
                         this.Close();
                         screen.Activate();
                
