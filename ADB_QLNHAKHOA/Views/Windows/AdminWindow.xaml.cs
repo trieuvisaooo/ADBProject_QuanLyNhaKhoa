@@ -60,6 +60,10 @@ namespace ADB_QLNHAKHOA
                     NvgtView.Header = "Tài khoản";
                     contentFrame.Navigate(typeof(AdminView_StaffAccountPage));
                     break;
+                case 3:
+                    NvgtView.Header = "Dịch vụ";
+                    contentFrame.Navigate(typeof(AdminView_ServiceListPage));
+                    break;
             }
         }
 
@@ -76,6 +80,9 @@ namespace ADB_QLNHAKHOA
                 case "2":
                     FrameInflate(2);
                     break;
+                case "3":
+                    FrameInflate(3);
+                    break;
             }
         }
 
@@ -91,6 +98,9 @@ namespace ADB_QLNHAKHOA
                     break;
                 case "2":
                     FrameInflate(2);
+                    break;
+                case "3":
+                    FrameInflate(3);
                     break;
             }
         }

@@ -53,7 +53,7 @@
                       ItemClick="ItemClick">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:AdminInfoViewModel">
-                        <StackPanel Background="DarkRed"
+                        <StackPanel Background="MidnightBlue"
                                     Padding="20"
                                     CornerRadius="8"
                                     Margin="0 20 0 0">

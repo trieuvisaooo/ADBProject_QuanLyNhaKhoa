@@ -19,10 +19,19 @@
                         >
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="ContactInfo" Content="Thông Tin Cá Nhân" Tag="0" />
-                <NavigationViewItem Icon="People" Content="Khách Hàng" Tag="1" />
-                <NavigationViewItem Content="Hồ Sơ Bệnh Án" Tag="2">
+                <NavigationViewItem Content="Thuốc" Tag="1" >
                     <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xEC25;" />
+                        <FontIcon Glyph="&#xE82C;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Tài khoản" Tag="2">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE716;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Dịch Vụ" Tag="3">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE776;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
