@@ -17,7 +17,11 @@
     <None Remove="MainWindow.xaml" />
     <None Remove="Views\AdminView_Medicine.xaml" />
     <None Remove="Views\DentistView_DentistInfo.xaml" />
+    <None Remove="Views\Pages\AdminViews_AddMedicine.xaml" />
     <None Remove="Views\Pages\AdminView_AdminInfo.xaml" />
+    <None Remove="Views\Pages\AdminView_MedicinePage.xaml" />
+    <None Remove="Views\Pages\AdminView_StaffAccountPage.xaml" />
+    <None Remove="Views\Pages\AdminView_StaffInfo.xaml" />
     <None Remove="Views\StaffView_CustomerInfo.xaml" />
     <None Remove="Views\StaffView_CustomerRecord.xaml" />
     <None Remove="Views\StaffView_StaffInfo.xaml" />
@@ -95,6 +99,26 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Windows\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\AdminView_StaffInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\AdminView_StaffAccountPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\AdminViews_AddMedicine.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\AdminView_MedicinePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Pages\AdminView_AdminInfo.xaml">

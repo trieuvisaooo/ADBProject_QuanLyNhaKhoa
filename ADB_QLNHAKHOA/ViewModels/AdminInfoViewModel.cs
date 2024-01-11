@@ -55,10 +55,11 @@ namespace ADB_QLNHAKHOA.ViewModels
             return null;
         }
 
-        public bool updateInfo(AdminInfoViewModel adminInfo, string phone, string birthday, string email, string password)
+        public bool updateInfo(AdminInfoViewModel adminInfo, string phone, object birthday, string email, string password)
         {
             var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
-            var query = $"UPDATE QTV SET SDT={phone}, NGSINH={birthday}, EMAIL={email}, MATKHAU={password} WHERE MAQTV={adminInfo.Id}";
+            var query = $"UPDATE QTV SET SDT='{phone}', NGSINH='{birthday}', EMAIL='{email}', MATKHAU='{password}' WHERE MAQTV={adminInfo.Id}";
+            Debug.WriteLine("query: ", query);
             var conn = new SqlConnection(connectionString);
             
             try
@@ -69,7 +70,6 @@ namespace ADB_QLNHAKHOA.ViewModels
                     { 
                         cmd.CommandText = query; 
                         cmd.ExecuteNonQuery();
-                    
                     } 
                 }
                 return true;

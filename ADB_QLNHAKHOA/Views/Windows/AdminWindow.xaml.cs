@@ -49,16 +49,16 @@ namespace ADB_QLNHAKHOA
             {
                 case 0:
                     NvgtView.Header = "Thông Tin Cá Nhân";
-                    var viewModel = new AdminInfoViewModel(_id);
+                    BaseViewModel viewModel = new AdminInfoViewModel(_id);
                     contentFrame.Navigate(typeof(AdminView_AdminInfo), viewModel); 
                     break;
                 case 1:
-                    NvgtView.Header = "Khách Hàng";
-                    contentFrame.Navigate(typeof(StaffView_CustomerInfo));
+                    NvgtView.Header = "Kho thuốc";
+                    contentFrame.Navigate(typeof(AdminView_MedicinePage));
                     break;
                 case 2:
-                    NvgtView.Header = "Hồ Sơ Bệnh Án";
-                    contentFrame.Navigate(typeof(StaffView_CustomerRecord));
+                    NvgtView.Header = "Tài khoản";
+                    contentFrame.Navigate(typeof(AdminView_StaffAccountPage));
                     break;
             }
         }

@@ -12,11 +12,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Windows.Forms;
+using Windows.ApplicationModel.VoiceCommands;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using System.Data.SqlClient;
-using System.Configuration;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -26,49 +24,20 @@ namespace ADB_QLNHAKHOA.Views.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class AdminView_AdminInfo : Page
+    public sealed partial class AdminView_StaffInfo : Page
     {
-        private AdminInfoViewModel viewModel = new AdminInfoViewModel();
-        private int _id;
+        private StaffInfoViewModel viewModel;
 
-        public AdminView_AdminInfo()
+        public AdminView_StaffInfo()
         {
             this.InitializeComponent();
-            this.DataContext = viewModel;
-
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
             base.OnNavigatedTo(e);
-            viewModel = e.Parameter as AdminInfoViewModel;
-            viewModel.getInfo(viewModel);
-            Password.Password = viewModel.Password;
+            viewModel = e.Parameter as StaffInfoViewModel;
         }
-        private void SaveBtn_Click(object sender, RoutedEventArgs e)
-        {
-            modifyInfo(sender, e);
-            string phone = PhoneNum.Text;
-            string birthday=DateOfBirth.Text;
-            string email = Email.Text;
-            string password = Password.Password;
-            Debug.WriteLine($"{phone} {birthday} {email} {password}");
-            this.Frame.Navigate(typeof(AdminView_AdminInfo), viewModel);
-        }
-
-        private void CancelBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Modify.Visibility= Visibility.Visible;
-            DateRow.Spacing = 30;
-            DateOfBirth.Visibility = Visibility.Visible;
-            ModifyDateOfBirth.Visibility = Visibility.Collapsed;
-            PhoneNum.IsReadOnly = true;
-            Email.IsReadOnly = true;
-            Password.IsEnabled = false;
-            SaveAndCancel.Visibility= Visibility.Collapsed;
-        }
-
-        private void ModifyInfoBtn_Click(object sender, RoutedEventArgs e)
+        public void ModifyInfoBtn_Click(object sender, RoutedEventArgs e)
         {
             Modify.Visibility = Visibility.Collapsed;
             DateOfBirth.Visibility = Visibility.Collapsed;
@@ -130,5 +99,24 @@ namespace ADB_QLNHAKHOA.Views.Pages
             }
         }
 
+        public void SaveBtn_Click(Object sender, RoutedEventArgs e) {
+            modifyInfo(sender, e);
+            string phone = PhoneNum.Text;
+            string birthday=DateOfBirth.Text;
+            string email = Email.Text;
+            string password = Password.Password;
+            Debug.WriteLine($"{phone} {birthday} {email} {password}");
+            this.Frame.Navigate(typeof(AdminView_StaffAccountPage), viewModel);
+        }
+        public void CancelBtn_Click(object sender, RoutedEventArgs e) {
+            Modify.Visibility= Visibility.Visible;
+            DateRow.Spacing = 30;
+            DateOfBirth.Visibility = Visibility.Visible;
+            ModifyDateOfBirth.Visibility = Visibility.Collapsed;
+            PhoneNum.IsReadOnly = true;
+            Email.IsReadOnly = true;
+            Password.IsEnabled = false;
+            SaveAndCancel.Visibility= Visibility.Collapsed;    
+        }
     }
 }
