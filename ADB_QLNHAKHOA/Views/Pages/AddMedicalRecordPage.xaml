@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="ADB_QLNHAKHOA.Views.Pages.AddMedicalRecordPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ADB_QLNHAKHOA.Views.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Tiêu đề -->
+        <TextBlock Text="TẠO HỒ SƠ BỆNH ÁN" FontSize="30" FontFamily="Verdana" HorizontalAlignment="Center" Margin="10"/>
+
+        <StackPanel Grid.Row="1">
+            <!-- Số điện thoại -->
+            <StackPanel Orientation="Horizontal" Margin="75,20,10,10">
+                <TextBlock Text="Số điện thoại:" Width="150"/>
+                <TextBox x:Name="phoneNumberTextBox" Width="500"/>
+            </StackPanel>
+
+            <!-- Tiêu đề phần thuốc và dịch vụ -->
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <TextBlock Text="Đơn thuốc chi tiết:" FontSize="20"/>
+                <TextBlock Text="Dịch vụ đã dùng:" FontSize="20" Margin="270,0,0,0"/>
+            </StackPanel>
+
+            <!-- Danh sách thuốc và dịch vụ -->
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <!-- Danh sách thuốc -->
+                <Grid Width="400">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <!-- Các hàng khác nếu cần -->
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Loại thuốc" Grid.Column="0"/>
+                    <TextBlock Text="Số lượng" Grid.Column="1" Margin="30,0,0,0"/>
+                    <!-- Các control nhập liệu cho thuốc ở đây -->
+                </Grid>
+
+                <!-- Danh sách dịch vụ -->
+                <Grid Width="400" Margin="30,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <!-- Các hàng khác nếu cần -->
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Loại dịch vụ" Grid.Column="0"/>
+                    <TextBlock Text="Số lượng" Grid.Column="1" Margin="30,0,0,0"/>
+
+                    <!-- Các control nhập liệu cho dịch vụ ở đây -->
+                </Grid>
+            </StackPanel>
+
+
+            <!-- Các nút hành động -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+                <Button x:Name="addMedicineButton" Content="Thêm thuốc" Width="200" Click="AddMedicineButton_Click" Margin="10"/>
+                <Button x:Name="addServiceButton" Content="Thêm dịch vụ" Width="200" Click="addServiceButton_Click" Margin="10"/>
+                <Button Style="{StaticResource AccentButtonStyle}" x:Name="saveProfileButton" Content="Lưu Hồ Sơ" Width="200" Click="SaveProfileButton_Click" Margin="10"/>
+                <Button x:Name="Cancel" Content="Hủy" Width="200" Click="Cancel_Click" Margin="10"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

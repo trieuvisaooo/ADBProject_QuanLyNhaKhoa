@@ -52,7 +52,8 @@ namespace ADB_QLNHAKHOA
                     break;
                 case 1:
                     NvgtView.Header = "Hồ Sơ Bệnh Nhân";
-                    contentFrame.Navigate(typeof(DentistView_DentistInfo));
+                    BaseViewModel viewModel1 = new CustomerVM1(_id);
+                    contentFrame.Navigate(typeof(DentistView_CustomerRecord));
                     break;
                 case 2:
                     NvgtView.Header = "Lịch hẹn cá nhân";
@@ -61,11 +62,11 @@ namespace ADB_QLNHAKHOA
                     break;
                 case 3:
                     NvgtView.Header = "Danh sách nhân viên";
-                    contentFrame.Navigate(typeof(DentistView_Appointment));
+                    contentFrame.Navigate(typeof(DentistView_StaffInfoList));
                     break;
                 case 4:
                     NvgtView.Header = "Danh sách nha sĩ";
-                    contentFrame.Navigate(typeof(DentistView_Appointment));
+                    contentFrame.Navigate(typeof(DentistView_DentistInfoList));
                     break;
             }
         }

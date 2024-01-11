@@ -18,6 +18,9 @@
     <None Remove="MainWindow.xaml" />
     <None Remove="Views\AdminView_Medicine.xaml" />
     <None Remove="Views\DentistView_DentistInfo.xaml" />
+    <None Remove="Views\Pages\AddMedicalRecordPage.xaml" />
+    <None Remove="Views\Pages\AddMedicin.xaml" />
+    <None Remove="Views\Pages\AddService.xaml" />
     <None Remove="Views\Pages\AdminViews_AddMedicine.xaml" />
     <None Remove="Views\Pages\AdminView_AddService.xaml" />
     <None Remove="Views\Pages\AdminView_AdminAccountPage.xaml" />
@@ -29,7 +32,11 @@
     <None Remove="Views\Pages\AdminView_StaffAccountPage.xaml" />
     <None Remove="Views\Pages\AdminView_StaffInfo.xaml" />
     <None Remove="Views\Pages\DentistView_Appointment.xaml" />
+    <None Remove="Views\Pages\DentistView_CustomerInfo.xaml" />
+    <None Remove="Views\Pages\DentistView_CustomerRecord.xaml" />
     <None Remove="Views\Pages\DentistView_DenMakeAppointment.xaml" />
+    <None Remove="Views\Pages\DentistView_DentistInfoList.xaml" />
+    <None Remove="Views\Pages\DentistView_StaffInfoList.xaml" />
     <None Remove="Views\StaffView_CustomerInfo.xaml" />
     <None Remove="Views\StaffView_CustomerRecord.xaml" />
     <None Remove="Views\StaffView_StaffInfo.xaml" />
@@ -107,6 +114,37 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Windows\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\DentistView_CustomerInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\AddMedicalRecordPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Pages\AddMedicin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Pages\AddService.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\DentistView_DentistInfoList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\DentistView_StaffInfoList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\DentistView_CustomerRecord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Pages\DentistView_DenMakeAppointment.xaml">
