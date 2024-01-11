@@ -29,7 +29,11 @@
     <None Remove="Views\Pages\AdminView_StaffAccountPage.xaml" />
     <None Remove="Views\Pages\AdminView_StaffInfo.xaml" />
     <None Remove="Views\Pages\DentistView_Appointment.xaml" />
+    <None Remove="Views\Pages\DentistView_CustomerInfo.xaml" />
+    <None Remove="Views\Pages\DentistView_CustomerRecord.xaml" />
     <None Remove="Views\Pages\DentistView_DenMakeAppointment.xaml" />
+    <None Remove="Views\Pages\DentistView_DentistList.xaml" />
+    <None Remove="Views\Pages\DentistView_StaffList.xaml" />
     <None Remove="Views\StaffView_CustomerInfo.xaml" />
     <None Remove="Views\StaffView_CustomerRecord.xaml" />
     <None Remove="Views\StaffView_StaffInfo.xaml" />
@@ -106,7 +110,30 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Pages\AdminView\" />
+    <Folder Include="Views\Pages\DentistView\" />
+    <Folder Include="Views\Pages\StaffView\" />
     <Folder Include="Views\Windows\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\DentistView_CustomerInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\DentistView_CustomerRecord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\DentistView_StaffList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Pages\DentistView_DentistList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Pages\DentistView_DenMakeAppointment.xaml">

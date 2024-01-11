@@ -49,7 +49,7 @@ namespace ADB_QLNHAKHOA.ViewModels
             try
             {
                 string query = "select MANS, HOTEN, NGSINH, SDT, EMAIL, MATKHAU, MAPHONGKHAM, CHUYENMON FROM NHA_SI where MANS = " + dentistInfo.Id.ToString();
-                var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+                var connectionString = (App.Current as App).ConnectionString;
                 using (var conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -88,7 +88,7 @@ namespace ADB_QLNHAKHOA.ViewModels
 
         public bool updateInfo(DentistInfoVM dentistInfo, string phone, object birthday, string email, string password)
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+            var connectionString = (App.Current as App).ConnectionString;
             var query = $"UPDATE NHA_SI SET SDT='{phone}', NGSINH='{birthday}', EMAIL='{email}', MATKHAU='{password}' WHERE MANS={dentistInfo.Id}";
             Debug.WriteLine("query: ", query);
             var conn = new SqlConnection(connectionString);

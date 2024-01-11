@@ -27,8 +27,7 @@
                 </NavigationViewItem>
                 <NavigationViewItem Icon="Clock" Content="Lịch Hẹn" Tag="2">
                 </NavigationViewItem>
-                <NavigationViewItem Icon="People" Content="Danh sách Nhân Viên" Tag="3"/>
-                <NavigationViewItem Icon="People" Content="Danh sách Nha Sĩ" Tag="4"/>
+                <NavigationViewItem Icon="People" Content="Danh sách" Tag="3"/>
             </NavigationView.MenuItems>
             <NavigationView.PaneFooter>
                 <NavigationViewItem Content="Đăng Xuất" Tag="SignOut">

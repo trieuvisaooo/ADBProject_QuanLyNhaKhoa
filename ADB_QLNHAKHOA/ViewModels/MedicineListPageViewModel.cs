@@ -31,7 +31,7 @@ namespace ADB_QLNHAKHOA.ViewModels
             try
             {
                 string query = $"select MATHUOC, TENTHUOC, GIA, SLTON, HSD, CHONGCHIDINH from THUOC";
-                var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+                var connectionString = (App.Current as App).ConnectionString;
                 var conn = new SqlConnection(connectionString);
                 conn.Open();
                 var medicines = new ObservableCollection<MedicineListPageViewModel>();

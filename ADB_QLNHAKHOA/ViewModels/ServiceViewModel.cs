@@ -25,7 +25,7 @@ namespace ADB_QLNHAKHOA.ViewModels
             try
             {
                 string query = $"select MADV, TENDV, GIA from DICH_VU";
-                var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+                var connectionString = (App.Current as App).ConnectionString;
                 var conn = new SqlConnection(connectionString);
                 conn.Open();
                 var medicines = new ObservableCollection<ServiceViewModel>();

@@ -19,7 +19,7 @@ namespace ADB_QLNHAKHOA.ViewModels
             try
             {
                 string query = $"select MANV, HOTEN, NGSINH, SDT, EMAIL, MATKHAU from NHAN_VIEN";
-                var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+                var connectionString = (App.Current as App).ConnectionString;
                 var conn = new SqlConnection(connectionString);
                 conn.Open();
                 var staffs = new ObservableCollection<StaffInfoViewModel>();
@@ -55,7 +55,7 @@ namespace ADB_QLNHAKHOA.ViewModels
             {
                 var staff = new StaffInfoViewModel();
                 string query = $"select MANV, HOTEN, NGSINH, SDT, EMAIL, MATKHAU FROM NHAN_VIEN where MANV = {id}";
-                var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+                var connectionString = (App.Current as App).ConnectionString;
                 using (var conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -91,7 +91,7 @@ namespace ADB_QLNHAKHOA.ViewModels
 
         public bool updateInfo(StaffInfoViewModel adminInfo, string phone, object birthday, string email, string password)
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+            var connectionString = (App.Current as App).ConnectionString;
             var query = $"UPDATE NHAN_VIEN SET SDT='{phone}', NGSINH='{birthday}', EMAIL='{email}', MATKHAU='{password}' WHERE MANV={adminInfo.Id}";
             Debug.WriteLine("query: ", query);
             var conn = new SqlConnection(connectionString);
@@ -126,7 +126,7 @@ namespace ADB_QLNHAKHOA.ViewModels
             {
                 Debug.WriteLine(str);
                 string query = $"select MANV, HOTEN, NGSINH, SDT, EMAIL, MATKHAU from NHAN_VIEN where HOTEN LIKE N'%{str}%'";
-                var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+                var connectionString = (App.Current as App).ConnectionString;
                 var conn = new SqlConnection(connectionString);
                 conn.Open();
                 var staffs = new ObservableCollection<StaffInfoViewModel>();

@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using ADB_QLNHAKHOA.ViewModels;
+using Microsoft.Data.SqlClient;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -24,13 +25,12 @@ namespace ADB_QLNHAKHOA.Views.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class AdminView_AddService : Page
+    public sealed partial class AdminViews_AddMedicine : Page
     {
-        public AdminView_AddService()
+        public AdminViews_AddMedicine()
         {
             this.InitializeComponent();
         }
-
         private string GenerateRandomString(int length)
         {
             Random random = new Random();
@@ -48,14 +48,14 @@ namespace ADB_QLNHAKHOA.Views.Pages
 
         private string GetNewID()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+            var connectionString = (App.Current as App).ConnectionString;
             var conn = new SqlConnection(connectionString);
             conn.Open();
 
             do
             {
                 string s = GenerateRandomString(6);
-                string query = $"select COUNT(*) from DICH_VU where MADV='{s}'";
+                string query = $"select COUNT(*) from THUOC where MATHUOC='{s}'";
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = query;
                 int cnt = (int)cmd.ExecuteScalar();
@@ -67,14 +67,16 @@ namespace ADB_QLNHAKHOA.Views.Pages
             }while(true);
             
         }
-
         private async void AddBtn_Click(object sender, RoutedEventArgs e)
         {
             var title = Title.Text;
+            var description = Description.Text;
             var price = Price.Value;
+            var quantity = Quantity.Value;
+            var exp = ModifyExp.Date;
             var id = GetNewID();
 
-            string query = $"INSERT INTO DICH_VU VALUES('{id}',N'{title}', {price});";
+            string query = $"INSERT INTO THUOC VALUES('{id}','{title}', {price}, {quantity}, '{exp}', '{description}');";
             var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
             var conn = new SqlConnection(connectionString);
             Debug.WriteLine(query);
@@ -87,12 +89,12 @@ namespace ADB_QLNHAKHOA.Views.Pages
                     SqlCommand cmd = conn.CreateCommand();
                     cmd.CommandText = query;
                     cmd.ExecuteNonQuery();
-                    this.Frame.Navigate(typeof(AdminView_ServiceListPage));
+                    this.Frame.Navigate(typeof(AdminView_MedicinePage));
                     ContentDialog addMedicineDialog = new ContentDialog
                     {
                         XamlRoot = this.XamlRoot,
-                        Title = "Tạo mới dịch vụ",
-                        Content = "Thêm dịch vụ mới thành công",
+                        Title = "Tạo mới thuốc",
+                        Content = "Thêm thuốc thành công",
                         CloseButtonText = "OK"
                     };
                     ContentDialogResult result = await addMedicineDialog.ShowAsync();
@@ -103,8 +105,8 @@ namespace ADB_QLNHAKHOA.Views.Pages
                 ContentDialog FailDialog = new ContentDialog
                 {
                     XamlRoot = this.XamlRoot,
-                    Title = "Tạo mới dịch vụ",
-                    Content = "Thêm dịch vụ thất bại",
+                    Title = "Tạo mới thuốc",
+                    Content = "Thêm thuốc thất bại",
                     CloseButtonText = "OK"
                 };
                 ContentDialogResult result = await FailDialog.ShowAsync();
@@ -116,7 +118,7 @@ namespace ADB_QLNHAKHOA.Views.Pages
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AdminView_ServiceListPage));
+            this.Frame.Navigate(typeof(AdminView_MedicinePage));
         }
     }
 }

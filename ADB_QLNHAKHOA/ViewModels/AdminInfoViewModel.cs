@@ -23,7 +23,7 @@ namespace ADB_QLNHAKHOA.ViewModels
             try
             {
                 string query = "select MAQTV, HOTEN, NGSINH, SDT, EMAIL, MATKHAU FROM QTV where MAQTV = " + adminInfo.Id.ToString();
-                var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+                var connectionString = (App.Current as App).ConnectionString;
                 using (var conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -58,7 +58,7 @@ namespace ADB_QLNHAKHOA.ViewModels
 
         public bool updateInfo(AdminInfoViewModel adminInfo, string phone, object birthday, string email, string password)
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+            var connectionString = (App.Current as App).ConnectionString;
             var query = $"UPDATE QTV SET SDT='{phone}', NGSINH='{birthday}', EMAIL='{email}', MATKHAU='{password}' WHERE MAQTV={adminInfo.Id}";
             Debug.WriteLine("query: ", query);
             var conn = new SqlConnection(connectionString);
@@ -86,7 +86,7 @@ namespace ADB_QLNHAKHOA.ViewModels
             try
             {
                 string query = $"select MAQTV, HOTEN, NGSINH, SDT, EMAIL, MATKHAU from QTV";
-                var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+                var connectionString = (App.Current as App).ConnectionString;
                 var conn = new SqlConnection(connectionString);
                 conn.Open();
                 var staffs = new ObservableCollection<AdminInfoViewModel>();
@@ -122,7 +122,7 @@ namespace ADB_QLNHAKHOA.ViewModels
             {
                 var staff = new AdminInfoViewModel();
                 string query = $"select MAQTV, HOTEN, NGSINH, SDT, EMAIL, MATKHAU FROM QTV where MAQTV = {id}";
-                var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+                var connectionString = (App.Current as App).ConnectionString;
                 using (var conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -163,7 +163,7 @@ namespace ADB_QLNHAKHOA.ViewModels
             {
                 Debug.WriteLine(str);
                 string query = $"select MAQTV, HOTEN, NGSINH, SDT, EMAIL, MATKHAU from QTV where HOTEN LIKE N'%{str}%'";
-                var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+                var connectionString = (App.Current as App).ConnectionString;
                 var conn = new SqlConnection(connectionString);
                 conn.Open();
                 var staffs = new ObservableCollection<AdminInfoViewModel>();

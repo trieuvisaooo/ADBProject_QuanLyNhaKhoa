@@ -43,7 +43,7 @@ namespace ADB_QLNHAKHOA.Views
                 return;
             }
             
-            var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
+            var connectionString = (App.Current as App).ConnectionString;
             connection = new SqlConnection(connectionString);
             connection.Open();
 
@@ -66,7 +66,7 @@ namespace ADB_QLNHAKHOA.Views
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
-            command.Parameters.AddWithValue("@MATKHAU", txtPassword.Text);
+            command.Parameters.AddWithValue("@MATKHAU", txtPassword.Password);
 
             var reader = command.ExecuteReader();
             

@@ -51,7 +51,6 @@ namespace ADB_QLNHAKHOA.Views.Pages
         public void ItemClick(object sender, ItemClickEventArgs e)
         {
             var item = e.ClickedItem as StaffInfoViewModel;
-            Debug.WriteLine(item.Password);
             if (item != null)
             {
                 this.Frame.Navigate(typeof(AdminView_StaffInfo), item);

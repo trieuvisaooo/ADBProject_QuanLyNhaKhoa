@@ -12,7 +12,18 @@ namespace ADB_QLNHAKHOA.ViewModels
         private string _email;
         private string _password;
 
-        public int Id {get; set;}
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+                OnPropertyChanged(nameof(_id));
+            }
+        }
         public string Name {get; set;}
         
         public DateOnly Birthday {get { return _birthday; } 

@@ -87,45 +87,45 @@ namespace ADB_QLNHAKHOA.Views.Pages
 
         private async void makeAppointment_Click(object sender, RoutedEventArgs e)
         {
-            //string connectionString = (App.Current as App).ConnectionString;
-            //SqlConnection con = new SqlConnection(@connectionString);
-            //Debug.WriteLine(@connectionString);
-            //string denName = (string)DenList.SelectedValue;
-            //try
-            //{
-            //    con.Open();
+            string connectionString = (App.Current as App).ConnectionString;
+            SqlConnection con = new SqlConnection(@connectionString);
+            Debug.WriteLine(@connectionString);
+            int CusID  = (int)CusList.SelectedValue;
+            try
+            {
+                con.Open();
 
-            //    string insert_statement = "EXEC sp_themLHCoTenNS '" + customer.CusID + "', '" + AppoDate.Date + "', '" + AppoTime.Time + "', N'" + denName + "'";
-            //    SqlCommand cmnd = new SqlCommand(insert_statement, con);
-            //    cmnd.ExecuteNonQuery();
-            //    this.Frame.Navigate(typeof(CustomerAppointment));
-            //    ContentDialog MadeAppointmentDialog = new ContentDialog
-            //    {
-            //        XamlRoot = this.XamlRoot,
-            //        Title = "Đăng Kí Lịch Hẹn",
-            //        Content = "Bạn đã đăng kí lịch hẹn thành công!",
-            //        CloseButtonText = "Ok"
-            //    };
-            //    ContentDialogResult result = await MadeAppointmentDialog.ShowAsync();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Debug.WriteLine($"Exception: {ex.Message}");
-            //    ContentDialog FailDialog = new ContentDialog
-            //    {
-            //        XamlRoot = this.XamlRoot,
-            //        Title = "Đăng Kí Lịch Hẹn",
-            //        Content = "Đăng kí thất bại!",
-            //        CloseButtonText = "Ok"
-            //    };
+                string insert_statement = "INSERT INTO CUOC_HEN(TENBN, MABN, NGAYHEN, GIOHEN, NHASIKHAM) VALUES (N'" + search_box.Text + "', '"  + CusID + "', '" + AppoDate.Date + "', '" + AppoTime.Time + "', " + dentist.Id+")";
+                SqlCommand cmnd = new SqlCommand(insert_statement, con);
+                cmnd.ExecuteNonQuery();
+                this.Frame.Navigate(typeof(DentistView_Appointment), dentist);
+                ContentDialog MadeAppointmentDialog = new ContentDialog
+                {
+                    XamlRoot = this.XamlRoot,
+                    Title = "Đăng Kí Lịch Hẹn",
+                    Content = "Bạn đã đăng kí lịch hẹn thành công!",
+                    CloseButtonText = "Ok"
+                };
+                ContentDialogResult result = await MadeAppointmentDialog.ShowAsync();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Exception: {ex.Message}");
+                ContentDialog FailDialog = new ContentDialog
+                {
+                    XamlRoot = this.XamlRoot,
+                    Title = "Đăng Kí Lịch Hẹn",
+                    Content = "Đăng kí thất bại!",
+                    CloseButtonText = "Ok"
+                };
 
-            //    ContentDialogResult result = await FailDialog.ShowAsync();
+                ContentDialogResult result = await FailDialog.ShowAsync();
 
-            //}
-            //finally
-            //{
-            //    con.Close();
-            //}
+            }
+            finally
+            {
+                con.Close();
+            }
 
 
         }
