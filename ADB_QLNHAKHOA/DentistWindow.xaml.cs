@@ -1,3 +1,4 @@
+﻿using ADB_QLNHAKHOA.Views;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -21,11 +22,93 @@ namespace ADB_QLNHAKHOA
     /// <summary>
     /// An empty window that can be used on its own or navigated to within a Frame.
     /// </summary>
+    /// 
+    
     public sealed partial class DentistWindow : Window
     {
         public DentistWindow()
         {
             this.InitializeComponent();
+            App.SetTitleBarColors(this);
+            this.AppWindow.TitleBar.ExtendsContentIntoTitleBar = true;
+            this.SetTitleBar(TitleBar);
+            contentFrame.CacheSize = 4;
+            NvgtView.SelectedItem = NvgtView.MenuItems[0];
+            FrameInflate(0);
         }
+
+        private void FrameInflate(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    NvgtView.Header = "Thông Tin Cá Nhân";
+                    contentFrame.Navigate(typeof(DentistView_DentistInfo));
+                    break;
+                case 1:
+                    NvgtView.Header = "Hồ Sơ Bệnh Án";
+                    contentFrame.Navigate(typeof(DentistView_CustomerInfo));
+                    break;
+                case 2:
+                    NvgtView.Header = "Lịch Hẹn";
+                    contentFrame.Navigate(typeof(DentistView_CustomerSchedule));
+                    break;
+                case 3:
+                    NvgtView.Header = "Danh sách Nhân Viên";
+                    contentFrame.Navigate(typeof(DentistView_StaffInfo));
+                    break;
+                case 4:
+                    NvgtView.Header = "Danh sách Nha Sĩ";
+                    contentFrame.Navigate(typeof(DentistView_LDentistInfo));
+                    break;
+            }
+        }
+
+        private void NvgtView_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
+        {
+            // Inflate frame according to the index invoked
+            switch (args.InvokedItemContainer.Tag)
+            {
+                case "0":
+                    FrameInflate(0);
+                    break;
+                case "1":
+                    FrameInflate(1);
+                    break;
+                case "2":
+                    FrameInflate(2);
+                    break;
+                case "3":
+                    FrameInflate(3);
+                    break;
+                case "4":
+                    FrameInflate(4);
+                    break;
+            }
+        }
+
+        private void NvgtView_SelectionChanged(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
+        {
+            // Inflate frame according to the index selected
+            switch (args.SelectedItemContainer.Tag)
+            {
+                case "0":
+                    FrameInflate(0);
+                    break;
+                case "1":
+                    FrameInflate(1);
+                    break;
+                case "2":
+                    FrameInflate(2);
+                    break;
+                case "3":
+                    FrameInflate(3);
+                    break;
+                case "4":
+                    FrameInflate(4);
+                    break;
+            }
+        }
+
     }
 }

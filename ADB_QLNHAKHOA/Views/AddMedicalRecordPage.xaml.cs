@@ -1,4 +1,3 @@
-using ADB_QLNHAKHOA.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -22,14 +21,30 @@ namespace ADB_QLNHAKHOA.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class DentistView_DentistInfo : Page
+    public sealed partial class AddMedicalRecordPage : Page
     {
-        public DentistView_DentistInfo()
+        public AddMedicalRecordPage()
         {
             this.InitializeComponent();
+        }
 
-            //DentistInfoVM.GetDentistInfo((App.Current as App).ConnectionString, dentistInfo);
+        private void SaveProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        private void addServiceButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddService));
+        }
 
+        private void AddMedicineButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddMedicin));
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(DentistView_CustomerInfo));
         }
     }
 }

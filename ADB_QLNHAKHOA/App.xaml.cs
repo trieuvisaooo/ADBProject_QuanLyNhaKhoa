@@ -19,7 +19,7 @@ namespace ADB_QLNHAKHOA
     public partial class App : Application
     {
         //conect to db in sql server
-        private string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=QLPK;Integrated Security=True";
+        private string connectionString = @"Data Source=LAPTHANHTHANH\SQLEXPRESS;Initial Catalog=QLNHAKHOA;Integrated Security=True";
         public string ConnectionString { get => connectionString; set => connectionString = value; }
 
         /// <summary>
@@ -39,8 +39,8 @@ namespace ADB_QLNHAKHOA
         {
             //Window mainWindow = new MainWindow();
             //mainWindow.Activate();
-            Window StaffWindow = new StaffWindow();
-            StaffWindow.Activate();
+            Window DentistWindow = new DentistWindow();
+            DentistWindow.Activate();
         }
 
         public static bool SetTitleBarColors(Window window)

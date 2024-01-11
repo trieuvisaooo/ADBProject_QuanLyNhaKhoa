@@ -9,6 +9,69 @@
     mc:Ignorable="d">
 
     <Grid>
+        <NavigationView x:Name="NvgtView" IsTitleBarAutoPaddingEnabled="False"
+                        AlwaysShowHeader="True" IsBackButtonVisible="Collapsed"
+                        Header="Default Header" Margin="0 50 0 0"
+                        IsSettingsVisible="False"
+                        ItemInvoked="NvgtView_ItemInvoked"
+                        SelectionChanged="NvgtView_SelectionChanged"
+                        Background="Transparent"
+                        >
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="ContactInfo" Content="Thông Tin Cá Nhân" Tag="0" />
+                <NavigationViewItem Content="Hồ Sơ Bệnh Án" Tag="1">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xEC25;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Icon="Clock" Content="Lịch Hẹn" Tag="2">
+                </NavigationViewItem>
+                <NavigationViewItem Icon="People" Content="Danh sách Nhân Viên" Tag="3"/>
+                <NavigationViewItem Icon="People" Content="Danh sách Nha Sĩ" Tag="4"/>
 
+            </NavigationView.MenuItems>
+            <NavigationView.PaneFooter>
+                <NavigationViewItem Content="Đăng Xuất" Tag="SignOut">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xF3B1;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.PaneFooter>
+            <Frame x:Name="contentFrame" Margin="20"/>
+        </NavigationView>
+        <Grid IsHitTestVisible="True"
+              VerticalAlignment="Top"
+              Height="48"
+              Padding="0, 5, 0, 0"
+              Canvas.ZIndex="1"
+              Grid.Row="0"
+              Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="45"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Background="Transparent"
+                    BorderThickness="0"
+                    VerticalAlignment="Center"
+                    Width="36"
+                    Height="36"
+                    VerticalContentAlignment="Center"
+                    Margin="6, 0, 0, 0"
+                    Grid.Column="0">
+                <FontIcon Glyph="&#xE946;" FontSize="14"/>
+            </Button>
+            <Border x:Name="TitleBar"
+            Background="Transparent"
+            Margin="0,0,0,0"
+            Grid.Column="1">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock x:Name="AppTitle"
+                       Text="Quản Lý Nha Khoa"
+                       VerticalAlignment="Center"
+                       Margin="5,0,0,0"
+                       Style="{StaticResource CaptionTextBlockStyle}"/>
+                </StackPanel>
+            </Border>
+        </Grid>
     </Grid>
 </Window>

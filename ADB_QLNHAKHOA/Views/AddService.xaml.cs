@@ -1,4 +1,4 @@
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -21,11 +21,27 @@ namespace ADB_QLNHAKHOA.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class StaffView_CustomerInfo : Page
+    public sealed partial class AddService : Page
     {
-        public StaffView_CustomerInfo()
+        public AddService()
         {
             this.InitializeComponent();
+            List<string> dvList = new List<string>
+            {
+                "Dịch vụ 1",
+                "Dịch vụ 2",
+                "Dịch vụ 3"
+            };
+
+            DichVuCombo.ItemsSource = dvList;
+        }
+
+        private void ThemButton_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void HuyButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddMedicalRecordPage));
         }
     }
 }

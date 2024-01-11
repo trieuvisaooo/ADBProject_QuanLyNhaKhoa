@@ -21,9 +21,9 @@ namespace ADB_QLNHAKHOA.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class AdminView_Medicine : Page
+    public sealed partial class DentistView_LDentistInfo : Page
     {
-        public AdminView_Medicine()
+        public DentistView_LDentistInfo()
         {
             this.InitializeComponent();
         }

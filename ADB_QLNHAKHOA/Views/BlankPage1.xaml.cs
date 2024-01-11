@@ -21,9 +21,9 @@ namespace ADB_QLNHAKHOA.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class StaffView_CustomerRecord : Page
+    public sealed partial class BlankPage1 : Page
     {
-        public StaffView_CustomerRecord()
+        public BlankPage1()
         {
             this.InitializeComponent();
         }

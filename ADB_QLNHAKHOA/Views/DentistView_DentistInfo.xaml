@@ -10,6 +10,77 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <StackPanel Grid.Row="0"
+                    Orientation="Vertical" 
+                    Padding="20"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Stretch"
+                    Spacing="15">
+
+            <StackPanel Orientation="Horizontal" Spacing="30">
+                <TextBlock Text="Mã nha sĩ: " Width="100"/>
+                <TextBox x:Name="DenID"
+                         AutomationProperties.Name="simple TextBox"
+                         IsReadOnly="True"
+                         Width="200" Height="30"
+                         Text="{Binding }"
+                         />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Spacing="30">
+                <TextBlock Text="Tên nhã sĩ: " Width="100"/>
+                <TextBox x:Name="DenName"
+                         AutomationProperties.Name="simple TextBox"
+                         IsReadOnly="True"
+                         Width="200" Height="30"
+                         />
+            </StackPanel>
+
+            <StackPanel Name="DateRow" Orientation="Horizontal" Spacing="30">
+                <TextBlock Text="Ngày sinh: " Width="100"/>
+                <TextBox x:Name="DateOfBirth"
+                         AutomationProperties.Name="simple TextBox"
+                         IsReadOnly="True"
+                         Width="200" Height="30"
+                         />
+                <CalendarDatePicker Name="ModifyDateOfBirth"
+                                    Width="200" Height="30"
+                                    Visibility="Collapsed"
+                                    DateFormat="{}{day.integer}/{month.integer}/{year.full}"/>
+            </StackPanel>
+
+            <StackPanel  Orientation="Horizontal" Spacing="30">
+                <TextBlock Text="SĐT: " Width="100"/>
+                <TextBox x:Name="PhoneNum"
+                         AutomationProperties.Name="simple TextBox"
+                         IsReadOnly="True"
+                         Width="200" Height="30"
+                        />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Spacing="30">
+                <TextBlock Text="Email: " Width="100"/>
+                <TextBox x:Name="Email"
+                         AutomationProperties.Name="simple TextBox"
+                         IsReadOnly="True"
+                         Width="350" Height="30"
+                        />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Spacing="30">
+                <TextBlock Text="Mã Phòng khám: " Width="100"/>
+                <TextBox x:Name="Addr"
+                         AutomationProperties.Name="simple TextBox"
+                         IsReadOnly="True"
+                         Width="350" Height="30"
+                        />
+            </StackPanel>
+
+        </StackPanel>
     </Grid>
 </Page>
