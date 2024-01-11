@@ -3,8 +3,7 @@ using Microsoft.UI;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
-using System.Data.SqlClient;
-using System.Diagnostics;
+using ADB_QLNHAKHOA.Views;
 using Windows.Graphics;
 using Windows.UI;
 
@@ -19,7 +18,7 @@ namespace ADB_QLNHAKHOA
     public partial class App : Application
     {
         //conect to db in sql server
-        private string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=QLPK;Integrated Security=True";
+        private string connectionString = @"Data Source=.\DESKTOP-IJ8RN4E;Initial Catalog=QLNHAKHOA;Integrated Security=True";
         public string ConnectionString { get => connectionString; set => connectionString = value; }
 
         /// <summary>

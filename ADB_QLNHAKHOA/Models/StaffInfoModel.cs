@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ADB_QLNHAKHOA.Models
 {
-    internal class StaffInfoModel
+    public class Patient
     {
+        public string Name { get; set; }
+        public DateTime AppointmentDate { get; set; }
     }
 }

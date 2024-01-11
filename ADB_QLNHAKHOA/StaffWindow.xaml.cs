@@ -46,10 +46,7 @@ namespace ADB_QLNHAKHOA.Views
                     NvgtView.Header = "Khách Hàng";
                     contentFrame.Navigate(typeof(StaffView_CustomerInfo));
                     break;
-                case 2:
-                    NvgtView.Header = "Hồ Sơ Bệnh Án";
-                    contentFrame.Navigate(typeof(StaffView_CustomerRecord));
-                    break;
+                
             }
         }
 
@@ -64,9 +61,7 @@ namespace ADB_QLNHAKHOA.Views
                 case "1":
                     FrameInflate(1);
                     break;
-                case "2":
-                    FrameInflate(2);
-                    break;
+                
             }
         }
 
@@ -80,9 +75,6 @@ namespace ADB_QLNHAKHOA.Views
                     break;
                 case "1":
                     FrameInflate(1);
-                    break;
-                case "2":
-                    FrameInflate(2);
                     break;
             }
         }
