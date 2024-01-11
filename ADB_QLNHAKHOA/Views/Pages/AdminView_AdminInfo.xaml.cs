@@ -75,7 +75,7 @@ namespace ADB_QLNHAKHOA.Views.Pages
             ModifyDateOfBirth.Visibility = Visibility.Visible;
             DateTime datetime = viewModel.Birthday.ToDateTime(TimeOnly.MinValue);
             ModifyDateOfBirth.Date = datetime;
-            DateRow.Spacing = 20;
+            DateRow.Spacing = 15;
             PhoneNum.IsReadOnly = false;
             Email.IsReadOnly = false;
             Password.IsEnabled = true;

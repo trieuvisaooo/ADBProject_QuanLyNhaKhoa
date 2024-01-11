@@ -19,7 +19,7 @@ namespace ADB_QLNHAKHOA
     public partial class App : Application
     {
         //conect to db in sql server
-        private string connectionString = @"Data Source=.\VANTRANY\SQLEXPRESS;Initial Catalog=QLNHAKHOA;Integrated Security=True";
+        private string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=QLNHAKHOA;Integrated Security=True";
         public string ConnectionString { get => connectionString; set => connectionString = value; }
 
         /// <summary>

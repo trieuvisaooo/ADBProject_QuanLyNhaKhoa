@@ -41,11 +41,11 @@
                                             Orientation="Vertical"
                                             Spacing="5">
                                     <StackPanel Orientation="Horizontal" Spacing="5">
-                                        <TextBlock Text="Mã thuốc:  " />
+                                        <TextBlock Text="Mã dịch vụ:  " />
                                         <TextBlock Text="{Binding Id}"/>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal" Spacing="5">
-                                        <TextBlock Text="Tên thuốc:  "/>
+                                        <TextBlock Text="Tên dịch vụ:  "/>
                                         <TextBlock Text="{Binding Title}"/>
                                     </StackPanel>
                                 
