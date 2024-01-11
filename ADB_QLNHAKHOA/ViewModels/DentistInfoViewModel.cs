@@ -10,19 +10,18 @@ using System.Threading.Tasks;
 
 namespace ADB_QLNHAKHOA.ViewModels
 {
-    public class StaffInfoViewModel: UserInfoViewModel
+    public class DentistInfoViewModel: UserInfoViewModel
     {
-        public StaffInfoViewModel() { }
-
-        public ObservableCollection<StaffInfoViewModel> getStaffs()
+        public DentistInfoViewModel() { }
+        public ObservableCollection<DentistInfoViewModel> getStaffs()
         {
             try
             {
-                string query = $"select MANV, HOTEN, NGSINH, SDT, EMAIL, MATKHAU from NHAN_VIEN";
+                string query = $"select MANS, HOTEN, NGSINH, SDT, EMAIL, MATKHAU from NHA_SI";
                 var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
                 var conn = new SqlConnection(connectionString);
                 conn.Open();
-                var staffs = new ObservableCollection<StaffInfoViewModel>();
+                var staffs = new ObservableCollection<DentistInfoViewModel>();
                 if (conn.State == System.Data.ConnectionState.Open)
                 {
                     SqlCommand cmd = conn.CreateCommand();
@@ -31,9 +30,9 @@ namespace ADB_QLNHAKHOA.ViewModels
                     Debug.WriteLine(query);
                     while (reader.Read())
                     {   
-                        StaffInfoViewModel vm = new StaffInfoViewModel();
+                        DentistInfoViewModel vm = new DentistInfoViewModel();
                         vm.Id = reader.GetInt32(0);
-                        vm.Name = reader.GetString(1);
+                        vm.Name = reader.GetValue(1) != DBNull.Value ? reader.GetString(1) : "";
                         DateTime date = reader.GetValue(2) != DBNull.Value ? reader.GetDateTime(2) : new DateTime(1980, 1, 1);
                         vm.Birthday = DateOnly.FromDateTime(date);  
                         vm.Phone = reader.GetValue(3) != DBNull.Value ? reader.GetString(3) : null;
@@ -49,12 +48,12 @@ namespace ADB_QLNHAKHOA.ViewModels
             return null;
         }
 
-        public StaffInfoViewModel getDetail(int id)
+        public DentistInfoViewModel getDetail(int id)
         {
             try
             {
-                var staff = new StaffInfoViewModel();
-                string query = $"select MANV, HOTEN, NGSINH, SDT, EMAIL, MATKHAU FROM NHAN_VIEN where MANV = {id}";
+                var staff = new DentistInfoViewModel();
+                string query = $"select MANS, HOTEN, NGSINH, SDT, EMAIL, MATKHAU FROM NHA_SI where MANS = {id}";
                 var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
                 using (var conn = new SqlConnection(connectionString))
                 {
@@ -89,10 +88,10 @@ namespace ADB_QLNHAKHOA.ViewModels
             return null;
         }
 
-        public bool updateInfo(StaffInfoViewModel adminInfo, string phone, object birthday, string email, string password)
+        public bool updateInfo(DentistInfoViewModel adminInfo, string phone, object birthday, string email, string password)
         {
             var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
-            var query = $"UPDATE NHAN_VIEN SET SDT='{phone}', NGSINH='{birthday}', EMAIL='{email}', MATKHAU='{password}' WHERE MANV={adminInfo.Id}";
+            var query = $"UPDATE NHA_SI SET SDT='{phone}', NGSINH='{birthday}', EMAIL='{email}', MATKHAU='{password}' WHERE MANS={adminInfo.Id}";
             Debug.WriteLine("query: ", query);
             var conn = new SqlConnection(connectionString);
             
@@ -115,21 +114,16 @@ namespace ADB_QLNHAKHOA.ViewModels
 
         }
 
-        public bool deleteStaff(StaffInfoViewModel staff)
-        {
-            return true;
-        }
-
-        public ObservableCollection<StaffInfoViewModel> getStaffsByName(string str)
+        public ObservableCollection<DentistInfoViewModel> getStaffsByName(string str)
         {    
             try
             {
                 Debug.WriteLine(str);
-                string query = $"select MANV, HOTEN, NGSINH, SDT, EMAIL, MATKHAU from NHAN_VIEN where HOTEN LIKE N'%{str}%'";
+                string query = $"select MANS, HOTEN, NGSINH, SDT, EMAIL, MATKHAU from NHA_SI where HOTEN LIKE N'%{str}%'";
                 var connectionString = ConfigurationManager.ConnectionStrings["QLNhaKhoaDbConnection"].ConnectionString;
                 var conn = new SqlConnection(connectionString);
                 conn.Open();
-                var staffs = new ObservableCollection<StaffInfoViewModel>();
+                var staffs = new ObservableCollection<DentistInfoViewModel>();
                 if (conn.State == System.Data.ConnectionState.Open)
                 {
                     SqlCommand cmd = conn.CreateCommand();
@@ -138,9 +132,9 @@ namespace ADB_QLNHAKHOA.ViewModels
                     Debug.WriteLine(query);
                     while (reader.Read())
                     {   
-                        StaffInfoViewModel vm = new StaffInfoViewModel();
+                        DentistInfoViewModel vm = new DentistInfoViewModel();
                         vm.Id = reader.GetInt32(0);
-                        vm.Name = reader.GetString(1);
+                        vm.Name = reader.GetValue(1) != DBNull.Value ? reader.GetString(1) : "";
                         DateTime date = reader.GetValue(2) != DBNull.Value ? reader.GetDateTime(2) : new DateTime(1980, 1, 1);
                         vm.Birthday = DateOnly.FromDateTime(date);  
                         vm.Phone = reader.GetValue(3) != DBNull.Value ? reader.GetString(3) : null;

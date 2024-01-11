@@ -1,4 +1,3 @@
-using ADB_QLNHAKHOA.Models;
 using ADB_QLNHAKHOA.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -24,23 +23,24 @@ namespace ADB_QLNHAKHOA.Views.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class AdminView_StaffAccountPage : Page
+    public sealed partial class AdminView_DentistAccountPage : Page
     {
-        private StaffInfoViewModel viewModel = new StaffInfoViewModel();
-        public AdminView_StaffAccountPage()
+        private DentistInfoViewModel viewModel = new DentistInfoViewModel();
+
+        public AdminView_DentistAccountPage()
         {
             this.InitializeComponent();
             AccountList.ItemsSource = viewModel.getStaffs();
-
         }
+
         public void StaffButton_Clicked(object sender, RoutedEventArgs e)
         {
 
+            this.Frame.Navigate(typeof(AdminView_StaffAccountPage));
         }
 
         public void DentistButton_Clicked(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AdminView_DentistAccountPage));
         }
 
         public void AdminButton_Clicked(object sender, RoutedEventArgs e)
@@ -50,11 +50,11 @@ namespace ADB_QLNHAKHOA.Views.Pages
 
         public void ItemClick(object sender, ItemClickEventArgs e)
         {
-            var item = e.ClickedItem as StaffInfoViewModel;
-            Debug.WriteLine(item.Password);
+            var item = e.ClickedItem as DentistInfoViewModel;
+            
             if (item != null)
             {
-                this.Frame.Navigate(typeof(AdminView_StaffInfo), item);
+                this.Frame.Navigate(typeof(AdminView_DentistInfo), item);
             }
         }
 
