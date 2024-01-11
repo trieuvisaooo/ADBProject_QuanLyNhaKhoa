@@ -117,7 +117,7 @@ namespace ADB_QLNHAKHOA.ViewModels
 
         public bool deleteStaff(StaffInfoViewModel staff)
         {
-
+            return true;
         }
     }
 
