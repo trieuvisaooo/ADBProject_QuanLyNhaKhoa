@@ -107,6 +107,7 @@ namespace ADB_QLNHAKHOA.Views.Pages
 
         private void cancel_Click(object sender, RoutedEventArgs e)
         {
+            this.Frame.Navigate(typeof(DentistView_CustomerInfo), customerInfo);
             Modify.Visibility = Visibility.Visible;
             DateRow.Spacing = 30;
             DateOfBirth.Visibility = Visibility.Visible;

@@ -95,7 +95,7 @@ namespace ADB_QLNHAKHOA.Views.Pages
             {
                 con.Open();
 
-                string insert_statement = "INSERT INTO CUOC_HEN(TENBN, MABN, NGAYHEN, GIOHEN, NHASIKHAM) VALUES (N'" + search_box.Text + "', '"  + CusID + "', '" + AppoDate.Date + "', '" + AppoTime.Time + "', " + dentist.Id+")";
+                string insert_statement = "INSERT INTO CUOC_HEN(TENBN, MABN, NGAYHEN, GIOHEN, NHASIKHAM, GHICHU) VALUES (N'" + search_box.Text + "', '"  + CusID + "', '" + AppoDate.Date + "', '" + AppoTime.Time + "', " + dentist.Id + ", '" + appointment_note.Text + "')";
                 SqlCommand cmnd = new SqlCommand(insert_statement, con);
                 cmnd.ExecuteNonQuery();
                 this.Frame.Navigate(typeof(DentistView_Appointment), dentist);

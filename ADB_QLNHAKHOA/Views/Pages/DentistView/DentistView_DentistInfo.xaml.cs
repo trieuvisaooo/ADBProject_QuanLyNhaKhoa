@@ -56,6 +56,7 @@ namespace ADB_QLNHAKHOA.Views
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
+            this.Frame.Navigate(typeof(DentistView_DentistInfo), viewModel);
             Modify.Visibility = Visibility.Visible;
             DateRow.Spacing = 30;
             DateOfBirth.Visibility = Visibility.Visible;

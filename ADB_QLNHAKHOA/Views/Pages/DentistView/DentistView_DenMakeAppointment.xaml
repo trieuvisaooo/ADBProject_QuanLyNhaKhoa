@@ -15,6 +15,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal"
@@ -63,7 +64,12 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Row="3"
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+            <TextBlock Text="Ghi chú: "/>
+            <TextBox x:Name="appointment_note" Text="" Width="600" Height="27"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4"
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Center"
                     Orientation="Horizontal"

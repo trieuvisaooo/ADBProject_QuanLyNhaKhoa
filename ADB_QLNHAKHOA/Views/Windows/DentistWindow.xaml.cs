@@ -86,6 +86,11 @@ namespace ADB_QLNHAKHOA
                 case "4":
                     FrameInflate(4);
                     break;
+                case "SignOut":
+                    Window LogInWindow = new LoginWindow();
+                    LogInWindow.Activate();
+                    this.Close();
+                    break;
             }
         }
 
@@ -108,6 +113,8 @@ namespace ADB_QLNHAKHOA
                     break;
                 case "4":
                     FrameInflate(4);
+                    break;
+                case "SignOut":
                     break;
             }
         }

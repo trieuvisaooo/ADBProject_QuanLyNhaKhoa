@@ -29,13 +29,20 @@
                 </NavigationViewItem>
                 <NavigationViewItem Icon="People" Content="Danh sách" Tag="3"/>
             </NavigationView.MenuItems>
-            <NavigationView.PaneFooter>
+            <NavigationView.FooterMenuItems>
                 <NavigationViewItem Content="Đăng Xuất" Tag="SignOut">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xF3B1;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-            </NavigationView.PaneFooter>
+            </NavigationView.FooterMenuItems>
+            <!--<NavigationView.PaneFooter>
+                <NavigationViewItem Content="Đăng Xuất" Tag="SignOut">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xF3B1;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.PaneFooter>-->
             <Frame x:Name="contentFrame" Margin="20"/>
         </NavigationView>
         <Grid IsHitTestVisible="True"
